@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Codecool.StockTrader</name>
+    </assembly>
+    <members>
+        <member name="T:Codecool.StockTrader.StockApiService">
+            <summary>
+                Stock price service that gets prices from iex
+            </summary>
+        </member>
+        <member name="M:Codecool.StockTrader.StockApiService.GetPrice(System.String)">
+            <summary>
+                Get stock price from iex and return as a double
+            </summary>
+            <param name="symbol"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Codecool.StockTrader.StockApiService.Buy(System.String)">
+            <summary>
+                Buys a share of the given stock at the current price. Returns false if the purchase fails.
+            </summary>
+            <param name="symbol"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Codecool.StockTrader.TradingApp">
+            <summary>
+                Provides a command line interface for stock trading
+            </summary>
+        </member>
+    </members>
+</doc>
