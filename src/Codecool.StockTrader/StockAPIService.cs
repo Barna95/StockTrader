@@ -1,16 +1,17 @@
 using Newtonsoft.Json.Linq;
+using System;
 
 namespace Codecool.StockTrader
 {
     /// <summary>
     ///     Stock price service that gets prices from iex
     /// </summary>
-    public class StockApiService
+    public class StockAPIService
     {
         private const string ApiPath = "https://run.mocky.io/v3/9e14e086-84c2-4f98-9e36-54928830c980?stock=";
-        private readonly RemoteUrlReader _remoteUrlReader;
+        private readonly RemoteURLReader _remoteUrlReader;
 
-        public StockApiService(RemoteUrlReader remoteUrlReader)
+        public StockAPIService(RemoteURLReader remoteUrlReader, string apipathURL)
         {
             _remoteUrlReader = remoteUrlReader;
         }
@@ -25,7 +26,15 @@ namespace Codecool.StockTrader
             string url = ApiPath + symbol;
             string result = _remoteUrlReader.ReadFromUrl(url);
             JObject json = JObject.Parse(result);
-            double price = json["price"]!.ToObject<double>();
+
+            string responseSymbol = json["symbol"].ToObject<string>();
+
+            if (!responseSymbol.Equals(symbol, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new ArgumentException("Symbol does not exist!", nameof(symbol));
+            }
+
+            double price = json["price"].ToObject<double>();
 
             return price;
         }
