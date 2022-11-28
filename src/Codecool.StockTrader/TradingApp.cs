@@ -8,9 +8,9 @@ namespace Codecool.StockTrader
     public class TradingApp
     {
         private readonly Trader _trader;
-        public FileLogger _logger { get; private set; }
+        public ILog _logger { get; private set; }
 
-        public TradingApp(Trader trader, FileLogger dbLogger)
+        public TradingApp(Trader trader, ILog dbLogger)
         {
             _trader = trader;
             _logger = dbLogger;

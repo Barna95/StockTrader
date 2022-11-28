@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Codecool.StockTrader
 {
-    public class FileLogger
+    public class FileLogger: ILog
     {
         public void Log(string message)
         {

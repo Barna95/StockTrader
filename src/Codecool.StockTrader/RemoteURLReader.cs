@@ -4,7 +4,7 @@ namespace Codecool.StockTrader
 {
     public class RemoteURLReader
     {
-        public string ReadFromUrl(string endpoint)
+        public virtual string ReadFromUrl(string endpoint)
         {
             using var client = new HttpClient();
             using var responseMessage = client.GetAsync(endpoint).Result;
