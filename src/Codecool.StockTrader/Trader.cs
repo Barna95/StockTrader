@@ -2,10 +2,10 @@ namespace Codecool.StockTrader
 {
     public class Trader
     {
-        private readonly StockApiService _stockService;
+        private readonly StockAPIService _stockService;
         private FileLogger _logger;
 
-        public Trader(StockApiService stockService, FileLogger dbLogger)
+        public Trader(StockAPIService stockService, FileLogger dbLogger)
         {
             _stockService = stockService;
             _logger = dbLogger;
