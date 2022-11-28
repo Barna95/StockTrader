@@ -2,7 +2,7 @@ using System.Net.Http;
 
 namespace Codecool.StockTrader
 {
-    public class RemoteUrlReader
+    public class RemoteURLReader
     {
         public string ReadFromUrl(string endpoint)
         {
